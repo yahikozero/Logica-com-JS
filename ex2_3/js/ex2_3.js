@@ -8,7 +8,7 @@ forms.addEventListener("submit", (e) =>{
     const preco = forms.inPreco.value;
 
     const entrada = preco * 0.50;
-    const parcela = (preco * 0.50) / 12;
+    const parcela = entrada / 12;
 
     resp1.innerText = `Promoção ${modelo}`;
     resp2.innerText = `Entrada de R$ ${entrada}`;

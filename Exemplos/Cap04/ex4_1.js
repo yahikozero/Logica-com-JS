@@ -11,10 +11,15 @@ forms.addEventListener("submit", (e) =>{
     
     media.innerText = `Média das Notas: ${mediaFinal}`
    
-    if (mediaFinal >= 7){
+    if (mediaFinal >= 7) {
         situacao.innerText = `Parabéns ${nome}! Você foi aprovado(a)!!`
+        situacao.style.color = "blue"
+    } else if (mediaFinal >= 4) {
+        situacao.innerText = `${nome}, você está de recuperação, estude para a próxima prova!`
+        situacao.style.color = "yellow"
     } else {
         situacao.innerText = `${nome}, você foi reprovado(a), tente novamente!`
+        situacao.style.color = "red"
     }
 
     e.preventDefault();

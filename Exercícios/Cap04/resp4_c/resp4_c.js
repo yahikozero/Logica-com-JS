@@ -9,19 +9,23 @@ forms.addEventListener("submit", (e) => {
     if (deposito < 1) {
         alert("Valor insuficiente, valor mínimo: R$1.00");
     };
+
     let troco
-    if (deposito >= 1) {
-        troco = deposito % 1;
-        resp1.innerText = `Tempo: 30 min`;
-        resp2.innerText = `Troco: R$ ${troco}`
-        
+    let tempo
+
+    if (deposito >= 3) {
+        tempo = 120
+        troco = deposito - 3;     
     } else if (deposito >= 1.75) {
-        troco = deposito % 1.75;
-        resp1.innerText = `Tempo: 60 min`;
-        resp2.innerText = `Troco: R$ ${troco}`
+        tempo = 60
+        troco = deposito - 1.75;
     } else {
-        troco = deposito % 3;
-        resp1.innerText = `Tempo: 120 min`
-        resp2.innerText = `Troxo: R$ ${troco}`
+        tempo = 30
+        troco = deposito - 1;
+    }
+
+    resp1.innerText = `Tempo: ${tempo} min`;
+    if (troco > 0){
+        resp2.innerText = `Troco: R$ ${troco}`;
     }
 });
